@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="m-2">
+    <div class="d-flex justify-content-center align-items-center my-3">
+      <a href="/products" class="button-ef">
+        <span title="Continuar comprando">Continuar comprando</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="product-container">
+    <div id="carouselExampleSlidesOnly" class="carousel slide carousel-container" data-ride="carousel">
+        
+      </div>
+    </div>
+
+    <input type="hidden" id="user-email" value="{{ user.email }}">
+    <input type="hidden" id="userCartID" value="{{ user.cart._id }}">
+
+    <div class="product-info">
+      
+      <p class="descripcion">{{product.description}}</p>
+      
+      <div class="text-center zoomy">
+        <button class="btn btn-effect btn-dark btn-jif bg-black btn-detalles mt-2 mx-4" id="addToCartBtn" data-product-id="{{product._id}}">Agregar al carrito</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Scripts necesarios -->
+<script src="/socket.io/socket.io.js"></script>
+<script src="https://kit.fontawesome.com/4e9044019f.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="/js/productDetailsScript.js"></script>

@@ -1,0 +1,68 @@
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{title}}</title>
+  <link rel="icon" type="image/x-icon" href="/img/favicon_io/favicon.ico" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+  <link rel="stylesheet" href="/css/{{style}}" />
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" />
+</head>
+<body>
+  <nav class="bg-body-tertiary fixed-top navbar navbar-expand-lg navbar-light">
+    <div class="container">
+      <button aria-controls="responsive-navbar-nav" type="button" aria-label="Toggle navigation" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#responsive-navbar-nav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="mx-auto navbar-brand" href="/"><img src="/public/img/logo.webp" width="84" height="43" alt="logo de jifstyle"></a>
+       <div class="collapse navbar-collapse justify-content-center" id="responsive-navbar-nav">
+        <div class="uppercase letterspace-1 col-11 justify-content-center navbar-nav">
+          <a class="nav-link" href="/home">Inicio</a>
+          <a class="nav-link" href="/products?page=1">Capitulos</a>
+          {{#if userAdmin}}
+          <a class="nav-link" href="/realtimeproducts">Capitulos en tiempo real</a>
+          {{/if}}
+          <a class="nav-link" href="/chat">Chat</a>
+        </div>
+        {{#if user}}
+        <div class="user-menu">
+          <div style="display: flex; justify-content: space-between;align-items: center;">
+            <p class="" style="color: rgb(5, 4, 4);">Bienvenido: <strong style="color:#b14040;text-transform:capitalize">{{user.first_name}} {{user.last_name}}</strong></p>
+            <form style="margin: 0 10px 0 6rem;zoom: 80%;" action="/api/sessions/logout" method="POST">
+              <button type="submit" class="btn button-black destroySession pl-3">Cerrar sesión</button>
+            </form>
+          </div>
+          <div style="display: flex;justify-content: space-between;align-items: center; color:rgb(10, 9, 9)">
+            <p class="user-data">✉ {{user.email}}</p>
+            {{#if user.age}}
+            <p class="user-data">Edad: {{user.age}}</p>
+            {{else}}
+            <p class="user-data" style="visibility: hidden;"></p>
+            {{/if}}
+            <p class="user-data">Cuenta: {{user.role}}</p>
+          </div>
+        </div>
+        {{else}}
+        {{/if}}
+      </div>
+      <div class="header__nav-user">
+      
+      </div>
+    </div>
+  </nav>
+  <div class="main-content">
+    {{{body}}}
+  </div>
+  <br>
+  <footer class="footer_style">
+    <a href="https://chat.whatsapp.com/IxHNh3ZgsD8AwPnmJZNJaY" target="_blank"class="fa-brands fa-whatsapp"  aria-hidden="true" ></a>
+    <a href="https://https://t.me/+iWvd3e6BIDQzZGIx" target="_blank" class="fa-brands fa-telegram" aria-hidden="true"></a>
+    <a href="https://paypal.me/joelgonzaleshuaman?country.x=PE&locale.x=es_XC" target="_blank" class="fa-brands fa-paypal" aria-hidden="true"></a>
+  </footer>
+  <!-- Scripts necesarios Fuentes y Bootstrap-->
+  <script src="https://kit.fontawesome.com/4e9044019f.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+</body>
+</html>
